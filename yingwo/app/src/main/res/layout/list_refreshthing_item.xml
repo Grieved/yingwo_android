@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@mipmap/shurukuang"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/post_content_bg"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="10dp"
-    android:layout_height="match_parent">
-    
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:paddingLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -19,11 +28,14 @@
         <TextView
             android:layout_toRightOf="@id/iv_jinghao"
             android:layout_marginLeft="10dp"
+            android:id="@+id/topic_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/zhutibiaoqian"
             android:textColor="@color/app_primary"
-            android:gravity="center_vertical"
+            android:gravity="center"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
             android:textSize="14sp"
             android:text="新鲜事"/>
     </LinearLayout>
@@ -34,29 +46,34 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
         android:textColor="@color/textcolor"
         android:text="我们知道section指的是索引条上选中字母的索引，我们假设这个字母是N；"/>
 
-    <GridView
+    <com.w4lle.library.NineGridlayout
+        android:layout_marginTop="10dp"
         android:id="@+id/gridview"
-        android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:numColumns="3"></GridView>
-
+        android:layout_width="match_parent" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/iv_userhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:roundAsCircle="true"
             android:background="@mipmap/touxiang"/>
         <LinearLayout
             android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_toRightOf="@id/iv_userhead"
             android:orientation="vertical"
             android:layout_marginLeft="8dp">
@@ -84,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_marginEnd="20dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -137,5 +154,6 @@
 
         </LinearLayout>
     </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

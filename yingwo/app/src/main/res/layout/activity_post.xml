@@ -1,200 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/post_main"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:background="@color/background">
 
-    <include android:id="@+id/layout_toolbar" layout="@layout/app_toolbar"></include>
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/app_toolbar"></include>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginRight="10dp">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/shurukuang"
-                android:padding="10dp"
-                >
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:orientation="vertical">-->
+    <!---->
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@mipmap/shurukuang"-->
+    <!--android:padding="10dp"-->
+    <!--&gt;-->
 
-                <RelativeLayout
-                    android:id="@+id/layout_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:id="@+id/layout1"
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/layout_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:gravity="center_vertical">-->
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_jinghao"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@mipmap/jinghao_gray"/>-->
+    <!--<TextView-->
+    <!--android:id="@+id/tv_topiclabel"-->
+    <!--android:layout_toRightOf="@id/iv_jinghao"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@mipmap/zhutibiaoqian"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="@color/app_primary"-->
+    <!--android:textSize="14sp"-->
+    <!--android:text="南工单身狗日常"/>-->
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+    <!--<ImageButton-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/ib_Command"-->
+    <!--android:background="@mipmap/more_gray"-->
+    <!--android:layout_alignParentEnd="true"/>-->
+    <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+    <!--android:id="@+id/iv_userhead"-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--fresco:placeholderImage="@mipmap/touxiang"-->
+    <!--android:layout_below="@id/layout1"/>-->
+    <!--<TextView-->
+    <!--android:id="@+id/tv_userId"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@id/iv_userhead"-->
+    <!--android:layout_below="@id/layout1"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:text="kinsomy"-->
+    <!--android:layout_marginTop="9dp"-->
+    <!--android:textColor="@color/textcolor1"-->
+    <!--android:textSize="14sp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_louzhu"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@id/tv_userId"-->
+    <!--android:background="@mipmap/louzhubiaoqian"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:layout_below="@id/layout1"-->
+    <!--android:textSize="14sp"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginTop="9dp"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:text="楼主"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_yilou"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="@color/textcolor3"-->
+    <!--android:textSize="12sp"-->
+    <!--android:layout_below="@id/tv_userId"-->
+    <!--android:layout_toRightOf="@id/iv_userhead"-->
+    <!--android:layout_marginTop="4dp"-->
+    <!--android:layout_marginLeft="8dp"-->
+    <!--android:text="第1楼"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_releasetime"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textColor="@color/textcolor3"-->
+    <!--android:textSize="12sp"-->
+    <!--android:text="21小时之前"-->
+    <!--android:layout_alignBaseline="@+id/tv_yilou"-->
+    <!--android:layout_alignBottom="@+id/tv_yilou"-->
+    <!--android:layout_alignRight="@+id/tv_louzhu"-->
+    <!--android:layout_alignEnd="@+id/tv_louzhu" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_content"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_title"-->
+    <!--android:textSize="15sp"-->
+    <!--android:paddingTop="3dp"-->
+    <!--android:textColor="@color/textcolor"-->
+    <!--android:text="我们知道section指的是索引条上选中字母的索引，我们假设这个字母是N；那secion-1就代表的是section所对应的字母在索引条上的前一个字母，如果section对应的是N的话，那section-1所对应的就是字母M;-->
+    <!--这段话的思想其实就是，我们一般而言是要将二分查找的start位置定为0，但如果尽量往后的话那查找起来会更快些。所以，既然在map中没有section字符所对应item的索引，但如果能找到它前一个字母所对应索引的话，我们就不必从头开始找了，直接从它上一个字母所对应的item位置往后找即可。">-->
+    <!--</TextView>-->
+
+    <!--<com.facebook.drawee.view.SimpleDraweeView-->
+    <!--android:id="@+id/iv_postPic"-->
+    <!--android:layout_width="660dp"-->
+    <!--android:layout_height="200dp"-->
+    <!--fresco:placeholderImage="@mipmap/picture_green"-->
+    <!--android:layout_below="@id/tv_content"-->
+    <!--android:layout_marginTop="2dp"/>-->
+
+
+    <!--                <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:layout_below="@id/iv_postPic"
+                        android:background="@mipmap/pinglunkuang_1"
                         android:gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/iv_jinghao"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/jinghao_gray"/>
                         <TextView
-                            android:id="@+id/tv_topiclabel"
-                            android:layout_toRightOf="@id/iv_jinghao"
-                            android:layout_marginLeft="8dp"
+                            android:id="@+id/tv1"
+                            android:textColor="@color/textcolor3"
+                            android:textSize="12sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/zhutibiaoqian"
-                            android:gravity="center"
-                            android:textColor="@color/app_primary"
-                            android:textSize="14sp"
-                            android:text="南工单身狗日常"/>
-                    </LinearLayout>
+                            android:text="已有"/>
+                        <TextView
+                            android:id="@+id/tv_replynum"
+                            android:textColor="@color/textcolor3"
+                            android:layout_toRightOf="@id/tv1"
+                            android:textSize="12sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18"/>
+                        <TextView
+                            android:id="@+id/tv2"
+                            android:textColor="@color/textcolor3"
+                            android:textSize="12sp"
+                            android:layout_toRightOf="@id/tv_replynum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="个回帖  "/>
+                        <TextView
+                            android:id="@+id/tv_likenum"
+                            android:layout_toRightOf="@id/tv2"
+                            android:textColor="@color/textcolor3"
+                            android:textSize="12sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"/>
+                        <TextView
+                            android:id="@+id/tv3"
+                            android:textColor="@color/textcolor3"
+                            android:textSize="12sp"
+                            android:layout_toRightOf="@id/tv_likenum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="个赞"/>
 
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/iv_userhead"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    fresco:placeholderImage="@mipmap/touxiang"
-                    android:layout_below="@id/layout1"/>
-                <TextView
-                    android:id="@+id/tv_userId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/iv_userhead"
-                    android:layout_below="@id/layout1"
-                    android:layout_marginLeft="8dp"
-                    android:text="kinsomy"
-                    android:layout_marginTop="9dp"
-                    android:textColor="@color/textcolor1"
-                    android:textSize="14sp"/>
+                        <ImageView
+                            android:id="@+id/iv_like"
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/heart_gray"
+                            />
+                    </RelativeLayout>-->
+    <!--</RelativeLayout>-->
 
-                <TextView
-                    android:id="@+id/tv_louzhu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_userId"
-                    android:background="@mipmap/louzhubiaoqian"
-                    android:layout_marginLeft="8dp"
-                    android:layout_below="@id/layout1"
-                    android:textSize="14sp"
-                    android:gravity="center"
-                    android:layout_marginTop="9dp"
-                    android:textColor="@color/white"
-                    android:text="楼主"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_page"
+        android:layout_below="@id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:layout_marginBottom="13dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+    <com.yingwo.yingwo.View.AutoLoadRecyclerView
+        android:id="@+id/rv_post"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <!--</LinearLayout>-->
+    <!--</ScrollView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/post_content_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_yilou"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/textcolor3"
-                    android:textSize="12sp"
-                    android:layout_below="@id/tv_userId"
-                    android:layout_toRightOf="@id/iv_userhead"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginLeft="8dp"
-                    android:text="第1楼"/>
+        <LinearLayout
+            android:id="@+id/command_item"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_weight="7"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/pinglunkuang_1"
+            android:orientation="horizontal"
+            android:onClick="buildItem">
 
-                    <TextView
-                        android:id="@+id/tv_releasetime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textcolor3"
-                        android:textSize="12sp"
-                        android:text="21小时之前"
-                        android:layout_alignBaseline="@+id/tv_yilou"
-                        android:layout_alignBottom="@+id/tv_yilou"
-                        android:layout_alignRight="@+id/tv_louzhu"
-                        android:layout_alignEnd="@+id/tv_louzhu" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/tv_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/layout_title"
-                    android:textSize="15sp"
-                    android:paddingTop="3dp"
-                    android:textColor="@color/textcolor"
-                    android:text="我们知道section指的是索引条上选中字母的索引，我们假设这个字母是N；那secion-1就代表的是section所对应的字母在索引条上的前一个字母，如果section对应的是N的话，那section-1所对应的就是字母M;
-    这段话的思想其实就是，我们一般而言是要将二分查找的start位置定为0，但如果尽量往后的话那查找起来会更快些。所以，既然在map中没有section字符所对应item的索引，但如果能找到它前一个字母所对应索引的话，我们就不必从头开始找了，直接从它上一个字母所对应的item位置往后找即可。">
-                </TextView>
-
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/iv_postPic"
-                    android:layout_width="660dp"
-                    android:layout_height="200dp"
-                    fresco:placeholderImage="@mipmap/picture_green"
-                    android:layout_below="@id/tv_content"
-                    android:layout_marginTop="2dp"/>
-
-<!--                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_below="@id/iv_postPic"
-                    android:background="@mipmap/pinglunkuang_1"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:id="@+id/tv1"
-                        android:textColor="@color/textcolor3"
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="已有"/>
-                    <TextView
-                        android:id="@+id/tv_replynum"
-                        android:textColor="@color/textcolor3"
-                        android:layout_toRightOf="@id/tv1"
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="18"/>
-                    <TextView
-                        android:id="@+id/tv2"
-                        android:textColor="@color/textcolor3"
-                        android:textSize="12sp"
-                        android:layout_toRightOf="@id/tv_replynum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="个回帖  "/>
-                    <TextView
-                        android:id="@+id/tv_likenum"
-                        android:layout_toRightOf="@id/tv2"
-                        android:textColor="@color/textcolor3"
-                        android:textSize="12sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12"/>
-                    <TextView
-                        android:id="@+id/tv3"
-                        android:textColor="@color/textcolor3"
-                        android:textSize="12sp"
-                        android:layout_toRightOf="@id/tv_likenum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="个赞"/>
-
-                    <ImageView
-                        android:id="@+id/iv_like"
-                        android:layout_alignParentEnd="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/heart_gray"
-                        />
-                </RelativeLayout>-->
-            </RelativeLayout>
-
-            <ListView
-                android:id="@+id/lv_post"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
         </LinearLayout>
-    </ScrollView>
+        <ImageButton
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/heart_gray"
+            android:id="@+id/ib_like" />
+    </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

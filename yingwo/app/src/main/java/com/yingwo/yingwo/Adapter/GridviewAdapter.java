@@ -1,65 +1,59 @@
 package com.yingwo.yingwo.Adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.SimpleAdapter;
 
-import com.yingwo.yingwo.R;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.w4lle.library.NineGridAdapter;
+import com.yingwo.yingwo.utils.ImageLoadUtil;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by FJS0420 on 2016/8/5.
  */
 
-public class GridviewAdapter extends SimpleAdapter {
+public class GridviewAdapter extends NineGridAdapter {
     Context context = null;
-    /**
-     * Constructor
-     *
-     * @param context  The context where the View associated with this SimpleAdapter is running
-     * @param data     A List of Maps. Each entry in the List corresponds to one row in the list. The
-     *                 Maps contain the data for each row, and should include all the entries specified in
-     *                 "from"
-     * @param resource Resource identifier of a view layout that defines the views for this list
-     *                 item. The layout file should include at least those named views defined in "to"
-     * @param from     A list of column names that will be added to the Map associated with each
-     *                 item.
-     * @param to       The views that should display column in the "from" parameter. These should all be
-     *                 TextViews. The first N views in this list are given the values of the first N columns
-     */
-    public GridviewAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
-        super(context, data, resource, from, to);
+    private List<String> urls;
+    public GridviewAdapter(Context context,List<String> urls) {
+        super(context, urls);
         this.context = context;
+        this.urls = urls;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // 重新填充note_item部局，并把它作为项的view返回
-        convertView = LayoutInflater.from(context).inflate(R.layout.grid_viewitem, null);
-        int mipmap = (int)getItem(position);
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.iv_photo);
-        imageView.setImageResource(mipmap);
-
-//        // Calculate the item width by the column number to let total width fill the screen width
-//        // 根据列数计算项目宽度，以使总宽度尽量填充屏幕
-//        int colnum = 1;
-//        colnum =  (int) (((context.getResources().getDisplayMetrics().widthPixels  )) / 200 );
-//        int itemWidth = (int)(context.getResources().getDisplayMetrics().widthPixels -  colnum * 10)  / colnum;
-//        // Calculate the height by your scale rate, I just use itemWidth here
-//        // 下面根据比例计算您的item的高度，此处只是使用itemWidth
-//        int itemHeight = itemWidth;
-//
-//        AbsListView.LayoutParams param = new AbsListView.LayoutParams(
-//                itemWidth,
-//                itemHeight);
-//        convertView.setLayoutParams(param);
-
-        return convertView;
-
+    public int getCount() {
+        return (urls == null) ? 0 : urls.size();
     }
+
+    @Override
+    public String getUrl(int positopn) {
+        return urls.get(positopn);
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return (urls == null) ? null : urls.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+    @Override
+    public View getView(int i, View convertView) {
+
+        SimpleDraweeView iv = new SimpleDraweeView(context);
+        iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        iv.setBackgroundColor(Color.parseColor("#f5f5f5"));
+        ImageLoadUtil.showThumb(Uri.parse(urls.get(i)),iv,context);
+//        iv.setImageURI(Uri.parse(urls.get(i)));
+        return iv;
+    }
+
+
 }

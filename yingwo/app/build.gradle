@@ -41,4 +41,26 @@ dependencies {
     compile 'com.qiniu:qiniu-android-sdk:7.2.+'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.guava:guava:19.0'
+    compile project(':roundedimageview')
+    // retrofit2 + okhttp3
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    // rxjava
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    // gson react
+    compile 'com.google.code.gson:gson:2.6.2'
+
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'cn.bingoogolapple:bga-banner:2.0.9@aar'
+
+    //九宫格
+    compile 'com.w4lle.library:NineLayout:1.0.0'
+    compile 'org.jetbrains:annotations-java5:15.0'
+
+
+
 }

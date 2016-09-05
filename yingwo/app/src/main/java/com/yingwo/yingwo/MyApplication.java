@@ -1,14 +1,21 @@
 package com.yingwo.yingwo;
 
 import android.app.Application;
+import android.content.Context;
 import android.graphics.Color;
+import android.os.Environment;
 
+import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.qiniu.android.common.Zone;
 import com.qiniu.android.storage.Configuration;
 import com.qiniu.android.storage.UploadManager;
 import com.yingwo.yingwo.Listener.UILPauseOnScrollListener;
 import com.yingwo.yingwo.loader.UILImageLoader;
+import com.yingwo.yingwo.model.LoginEntity;
+
+import java.io.File;
 
 import cn.finalteam.galleryfinal.CoreConfig;
 import cn.finalteam.galleryfinal.FunctionConfig;
@@ -20,6 +27,7 @@ import cn.finalteam.galleryfinal.ThemeConfig;
  */
 
 public class MyApplication extends Application{
+    static Context context;
     FunctionConfig functionConfig;
     CoreConfig coreConfig;
     ThemeConfig theme;
@@ -27,7 +35,19 @@ public class MyApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        Fresco.initialize(getApplicationContext());
+//        ConfigConstants.init(getResources());// 初始化默认图片（占位图，错误图）
+//        Fresco.initialize(this, ConfigConstants.getImagePipelineConfig(this));// 图片缓存初始化配置
+
+        DiskCacheConfig diskCacheConfig = DiskCacheConfig.newBuilder(getApplicationContext())
+                .setBaseDirectoryPath(new File(Environment.getExternalStorageDirectory().getAbsoluteFile(),"yingwoxy"))
+                .setBaseDirectoryName("yingwo")
+                .setMaxCacheSize(200*1024*1024)//200MB
+                .build();
+        ImagePipelineConfig imagePipelineConfig = ImagePipelineConfig.newBuilder(this)
+                .setMainDiskCacheConfig(diskCacheConfig)
+                .build();
+        Fresco.initialize(this, imagePipelineConfig);
+        context =getApplicationContext();
         //设置主题
         theme = new ThemeConfig.Builder()
                 .setTitleBarBgColor(Color.rgb(29, 210, 166))
@@ -63,5 +83,9 @@ public class MyApplication extends Application{
 // 重用uploadManager。一般地，只需要创建一个uploadManager对象
         UploadManager uploadManager = new UploadManager(config);
 
+    }
+
+    public static  Context getGlobalContext(){
+        return context;
     }
 }

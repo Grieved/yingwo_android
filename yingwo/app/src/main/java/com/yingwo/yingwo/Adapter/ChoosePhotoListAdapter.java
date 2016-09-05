@@ -20,7 +20,6 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
@@ -35,8 +34,6 @@ import cn.finalteam.toolsfinal.DeviceUtils;
 
 /**
  * Desction:
- * Author:pengjianbo
- * Date:15/12/1 下午8:42
  */
 public class ChoosePhotoListAdapter extends BaseAdapter {
     private List<PhotoInfo> mList;
@@ -71,16 +68,18 @@ public class ChoosePhotoListAdapter extends BaseAdapter {
                 .showImageForEmptyUri(R.drawable.ic_gf_default_photo)
                 .showImageOnLoading(R.drawable.ic_gf_default_photo).build();
 
-        ImageView ivPhoto = (ImageView) mInflater.inflate(R.layout.adapter_photo_list_item, null);
-        setHeight(ivPhoto);
+
+        View view = mInflater.inflate(R.layout.adapter_photo_list_item, null);
+        ImageView ivPhoto = (ImageView) view.findViewById(R.id.iv_photo);
+//        setHeight(ivPhoto);
 
         PhotoInfo photoInfo = mList.get(position);
         ImageLoader.getInstance().displayImage("file:/" + photoInfo.getPhotoPath(), ivPhoto, options);
-        return ivPhoto;
+        return view;
     }
 
-    private void setHeight(final View convertView) {
+    /*private void setHeight(final View convertView) {
         int height = mScreenWidth / 3 - 8;
-        convertView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
-    }
+        convertView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
+    }*/
 }
